@@ -32,15 +32,12 @@ def calculate_recipients
   # write a method that will return an array of only the subscribers who haven't unsubscribed
       new_arr = []
       SUBSCRIBERS.each do |element|
-          UNSUBSCRIBED.each do |x|
-              if(element != x)
+              if !UNSUBSCRIBED.include?(element) && !new_arr.include?(element)
                 new_arr << element
+            
               end
-          end 
       end
-
-
-      new_arr 
+    new_arr
 
 
 end
@@ -54,7 +51,7 @@ def print_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
 
-  
+
 end
 
 def print_one_article(article)
