@@ -50,19 +50,32 @@ def print_recipients
   # Write a method that uses the output of calculate_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
+  recipients = calculate_recipients
+  list_of_emails = ""
+  recipients.each do |y|
+    list_of_emails << y 
+    if y != recipients[recipients.length - 1]
 
-
+    list_of_emails << ", " 
+    end
+  end  
+  list_of_emails
 end
 
 def print_one_article(article)
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
   # See the README/sample output for examples
+  puts article
 end
 
 def print_many_articles(articles)
   # Write a method that will take in an array of article hashes
   # and format each one using the print_one_article method
+  articles.each do |art|
+    print_one_article(art) 
+
+  end  
 end
 
 def format_campus_location(campus)
@@ -100,8 +113,12 @@ def run
   # but we can change that number here
   print_newsletter("3")
   calculate_recipients
+  puts print_recipients
+  print_many_articles(ARTICLES)
 end
+
 
 # When we run "ruby newsletter.rb" in the command line,
 # the 'run' method will be called because we're calling it below.
 run
+
